@@ -2,11 +2,20 @@
 
 Welcome to the **AI Agent Workshop**. In this workshop, you will learn how to build, deploy, and scale AI Agents using the **Google Agent Development Kit (ADK)** and **Gemini** models.
 
-## project Overview
+## Project Overview
 
-This project is a comprehensive guide to mastering AI Agents. You will progress through four distinct modules, starting from a basic financial assistant to complex multi-agent workflows.
+In this workshop, participants build a **Financial Assistant Agent** designed for JP Morgan employees. This agent evolves from a simple script into a sophisticated, multi-agent system capable of complex financial reasoning and grounded data analysis.
 
-## project Structure
+## The Financial Assistant Agent
+
+The agent you will build is a specialized AI system that acts as a digital companion for financial analysts. Over the course of the workshop, you will implement:
+
+- **Real-Time Data Access**: Unlike standard LLMs, your agent will use **Tools** to fetch current market data and simulated stock prices.
+- **Grounded Intelligence (RAG)**: The agent will be connected to internal JPM documents (Investment Policies, Strategy Papers) using Retrieval-Augmented Generation, ensuring its advice is consistent with firm standards and current outlooks.
+- **Sophisticated Orchestration**: You will move from a single agent to a **Manager-Worker** architecture, where a lead agent coordinates specialized researchers and analysts to solve multi-step problems.
+- **Professional Persona**: The agent is tuned to maintain a professional, analytical tone suitable for a banking environment.
+
+## Project Structure
 
 The workshop is organized into the following modules:
 
