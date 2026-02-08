@@ -2,6 +2,8 @@
 
 Learn how to connect your agents to external knowledge using **Retrieval-Augmented Generation (RAG)**.
 
+![ADK Workshop Module 2](adk-workshop-module2.png)
+
 ## What does this Agent do?
 
 In this module, you build a **Knowledge-Grounded Financial Agent** that can "read" and reason over private corporate data.
