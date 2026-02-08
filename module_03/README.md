@@ -2,6 +2,8 @@
 
 Take your agents beyond simple chat and move into **Complex Reasonings** and **Manager-Worker** patterns.
 
+![ADK Workshop Module 3](adk-workshop-module3.png)
+
 ## What does this Agent do?
 
 In this module, you build a **Hierarchical Workflow Agent** capable of delegating tasks and managing multi-step reasoning processes.
