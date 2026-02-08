@@ -2,6 +2,14 @@
 
 Learn how to connect your agents to external knowledge using **Retrieval-Augmented Generation (RAG)**.
 
+## What does this Agent do?
+
+In this module, you build a **Knowledge-Grounded Financial Agent** that can "read" and reason over private corporate data.
+
+- **Grounded reasoning**: Unlike vanilla LLMs that may hallucinate unknown facts, this agent uses a **Vector Database (Chroma)** to retrieve specific excerpts from JPM Investment Policies and Market Outlooks before answering.
+- **Policy-Aware Analysis**: The agent is trained to prioritize internal strategy documents, ensuring that its financial advice is not just generic but aligned with the firm's specific guidelines and current 2025 outlook.
+- **Dynamic Ingestion**: You will learn how to build an ingestion pipeline (`ingest.py`) that transforms raw text files into searchable mathematical embeddings.
+
 ## Learning Objectives
 - Understand the RAG pipeline (Ingestion, Retrieval, Generation).
 - Work with vector databases (Chroma).
