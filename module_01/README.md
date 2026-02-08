@@ -2,6 +2,8 @@
 
 In this module, you will build your very first **AI Agent** using the Google Agent Development Kit (ADK).
 
+![ADK Workshop Module 1](adk-workshop-module1.png)
+
 ## Learning Objectives
 - Understand the core components of an AI Agent (Reasoning, Acting, Reflecting).
 - Use the `google-adk` and `google-genai` libraries.
