@@ -1,0 +1,16 @@
+
+JPMorgan Chase - Technology Strategy 2025 (Internal Memo)
+FROM: CTO Office
+TO: All Engineering Leads
+
+1. Cloud Migration
+We are 85% complete with our migration to the hybrid cloud environment. 
+The remaining 15% (legacy mainframe apps) will be refactored by Q4 2025.
+
+2. Developer Experience (DevEx)
+All new projects must use the "ADK" (Agent Development Kit) for building AI-powered features.
+We are deprecating the old "ChatBot V1" framework immediately. Note: Use `uv` for python tool management.
+
+3. Security
+Zero Trust architecture is now mandatory for all internal APIs.
+All AI agents must have an "Human-in-the-loop" validation step for transactions over $10,000.

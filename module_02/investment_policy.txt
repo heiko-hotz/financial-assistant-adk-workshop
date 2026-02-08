@@ -1,0 +1,30 @@
+
+JPMorgan Chase & Co. - Strategic Investment Policy (2025)
+CONFIDENTIAL - INTERNAL USE ONLY
+
+1. Technology Growth Strategy
+We are bullish on the "AI Infrastructure" sector. Specifically, the firm recommends overweighting companies that produce:
+- High-performance semiconductors (GPUs, TPUs)
+- Data center cooling solutions
+- Renewable energy for computational power
+*Guidance:* Invest in tech companies with a P/E ratio under 40 and year-over-year growth > 15%. Avoid legacy hardware providers.
+
+2. Ethical & ESG Guidelines
+All investments must adhere to the "Clean Future" initiative.
+- No investments in coal mining or tobacco production.
+- Companies must have a board diversity score of at least 30%.
+- Tech companies must have a published "Responsible AI" framework.
+
+3. Risk Management
+- Portfolio variance should not exceed 12% annualized volatility.
+- Maximum allocation to a single stock is capped at 5% of the total portfolio.
+- Stop-loss orders are mandatory for all speculative tech assets at -15%.
+
+4. Approved Tickers (Tech)
+- NVDA (Nvidia) - Strong Buy
+- GOOG (Alphabet) - Buy
+- MSFT (Microsoft) - Hold
+- INTC (Intel) - Underweight
+
+5. Disclaimer
+This document is a simulation for training purposes and does not constitute real financial advice.
