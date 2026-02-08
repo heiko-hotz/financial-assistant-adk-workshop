@@ -2,6 +2,8 @@
 
 Master the orchestration of **Complex Workflows** using specialized agents working in concert.
 
+![ADK Workshop Module 4](adk-workshop-module4.png)
+
 ## What does this Agent do?
 
 In this final module, you build a **Complex Multi-Agent Orchestrator**—a production-grade system where specialized AI personas collaborate to perform deep financial research.
