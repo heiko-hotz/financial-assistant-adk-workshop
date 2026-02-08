@@ -39,3 +39,7 @@ ENV/
 # Project specific
 .adk/
 *.log
+
+# Local utility files
+adk_loop_verification.py
+google-adk-docs.txt
