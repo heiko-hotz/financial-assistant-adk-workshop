@@ -3,7 +3,8 @@ import os
 import sys
 from dotenv import load_dotenv
 
-from google.adk.agents import Agent, SequentialAgent, LoopAgent
+from google.adk.agents import Agent, SequentialAgent, LoopAgent, BaseAgent
+from google.adk.events import Event, EventActions
 from google.genai import types
 
 # 1. Setup Environment
@@ -46,24 +47,32 @@ compliance_officer = Agent(
         "Review the analyst's findings. If the report is incomplete or lacks professional tone, "
         "provide specific feedback. "
         "If the report is perfect and ready, start your response with 'READY_FOR_SUMMARY'."
-    )
+    ),
+    output_key="compliance_report"
 )
 
-# C. Loop Termination Callback
-def check_for_completion(**kwargs):
-    ctx = kwargs.get('callback_context')
-    if ctx and ctx.user_content and ctx.user_content.parts:
-        text = ctx.user_content.parts[0].text
-        if "READY_FOR_SUMMARY" in text:
-            return True 
-    return False
+# C. Termination Checker (Loop Participant)
+class TerminationChecker(BaseAgent):
+    async def _run_async_impl(self, ctx):
+        # Check the output from the compliance officer
+        report = ctx.session.state.get("compliance_report", "")
+        if "READY_FOR_SUMMARY" in report:
+            # Signal the loop to stop
+            yield Event(
+                author=self.name,
+                actions=EventActions(escalate=True)
+            )
+        else:
+            # Continue the loop
+            yield Event(author=self.name)
+
+termination_checker = TerminationChecker(name="termination_checker")
 
 # D. Research Loop (Sequential Step 2)
 research_loop = LoopAgent(
     name="research_loop",
-    sub_agents=[rag_analyst, compliance_officer],
-    max_iterations=4,
-    after_agent_callback=check_for_completion
+    sub_agents=[rag_analyst, compliance_officer, termination_checker],
+    max_iterations=4
 )
 
 # E. Reporter (Sequential Step 3)
