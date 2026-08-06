@@ -17,14 +17,14 @@ if "GOOGLE_API_KEY" not in os.environ:
 
 # 2. Define Tools
 def get_stock_price(
-    ticker: Annotated[str, "The stock ticker symbol (e.g. JPM, AAPL)"]
+    ticker: Annotated[str, "The stock ticker symbol (e.g. LUMR, AAPL)"]
 ) -> float:
     """Fetches the current stock price for a given ticker."""
     print(f"   [Tool] Fetching price for {ticker}...")
     
     # Simulation logic
     mock_prices = {
-        "JPM": 245.50,
+        "LUMR": 245.50,
         "AAPL": 180.00,
         "GOOG": 140.00
     }
@@ -35,11 +35,11 @@ stock_tool = FunctionTool(get_stock_price)
 # 3. Define Agent
 # Named 'root_agent' for ADK compatibility
 root_agent = Agent(
-    model="gemini-2.5-flash",
+    model="gemini-3.5-flash-lite",
     name="financial_assistant",
     tools=[stock_tool],
     instruction=(
-        "You are a helpful Financial Assistant for JPMorgan Chase employees. "
+        "You are a helpful Financial Assistant for Lumenridge Financial Group employees. "
         "Use your tools to find stock prices when asked. "
         "Always explain your analysis in a professional tone."
     )

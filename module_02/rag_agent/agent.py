@@ -11,7 +11,7 @@ if "GOOGLE_API_KEY" not in os.environ:
     print(f"⚠️ Warning: GOOGLE_API_KEY not found in {env_path}")
 
 from google.adk.agents import Agent
-from google.adk.tools.mcp_tool import McpToolset
+from google.adk.tools import McpToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams, StdioServerParameters
 
 # Calculate absolute path to the database to ensure it works from any CWD
@@ -35,7 +35,7 @@ chroma_tool = McpToolset(
 
  # Create the Agent
 root_agent = Agent(
-    model='gemini-2.5-flash',
+    model='gemini-3.5-flash-lite',
     name='rag_agent',
     instruction="""You are a RAG Analyst. 
     Use the `chroma_query_documents` (or similar) tool to answer questions based on the user's document collection.

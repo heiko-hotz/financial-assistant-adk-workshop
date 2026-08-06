@@ -1,5 +1,5 @@
 
-JPMorgan Chase - Technology Strategy 2025 (Internal Memo)
+Lumenridge Financial Group - Technology Strategy 2025 (Internal Memo)
 FROM: CTO Office
 TO: All Engineering Leads
 

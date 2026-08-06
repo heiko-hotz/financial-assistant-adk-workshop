@@ -29,24 +29,37 @@ except ImportError as e:
 
 # A. Goal Refiner (Sequential Step 1)
 goal_refiner = Agent(
-    model="gemini-2.5-flash",
+    model="gemini-3.5-flash-lite",
     name="goal_refiner",
     instruction=(
-        "You are a Research Coordinator. "
-        "Your job is to take a raw user query and turn it into a clear, detailed research prompt "
-        "for an analyst. Focus on technical details and specific banking context."
+        "You are the Research Coordinator for Lumenridge Financial Group. "
+        "Turn the user's request into a research plan; do not answer it yourself. "
+        "Tell the analyst to use only facts retrieved from the supplied workshop documents and "
+        "never supplement them with general knowledge. For a strategy memo, require evidence on "
+        "the AI-infrastructure thesis, its valuation and growth thresholds, the Clean Future ESG "
+        "rules, and the portfolio risk controls. Request relevant internal technology controls when "
+        "the question calls for them. If a requested fact is absent, tell the analyst to say so. "
+        "Do not introduce unverified companies, figures, regulations, or technologies into the plan."
     )
 )
 
 # B. Compliance/Evaluator (Loop Participant)
 compliance_officer = Agent(
-    model="gemini-2.5-flash",
+    model="gemini-3.5-flash-lite",
     name="compliance_officer",
     instruction=(
-        "You are a Senior Compliance Officer. "
-        "Review the analyst's findings. If the report is incomplete or lacks professional tone, "
-        "provide specific feedback. "
-        "If the report is perfect and ready, start your response with 'READY_FOR_SUMMARY'."
+        "You are the Senior Compliance Officer for Lumenridge Financial Group. "
+        "Treat retrieved workshop-document content as the only valid evidence. Review every material "
+        "claim in the analyst's findings and reject claims that are not supported by that evidence. "
+        "Never accept or add outside facts, regulations, technologies, companies, or figures; examples "
+        "such as GDPR, Basel III, the EU AI Act, Kubernetes, and PII controls are unsupported unless "
+        "they were actually retrieved. For a strategy memo, require the Lumenridge name and supported "
+        "facts covering the AI-infrastructure thesis, valuation and growth thresholds, Clean Future "
+        "ESG rules, and portfolio risk controls. Also require any technology facts requested by the "
+        "user. If evidence is missing or a claim is unsupported, give specific feedback directing the "
+        "analyst to retrieve evidence, remove the claim, or state that the documents do not say. "
+        "Only when the findings are complete, professional, and fully grounded should your response "
+        "start with 'READY_FOR_SUMMARY'."
     ),
     output_key="compliance_report"
 )
@@ -56,7 +69,7 @@ class TerminationChecker(BaseAgent):
     async def _run_async_impl(self, ctx):
         # Check the output from the compliance officer
         report = ctx.session.state.get("compliance_report", "")
-        if "READY_FOR_SUMMARY" in report:
+        if report.lstrip().startswith("READY_FOR_SUMMARY"):
             # Signal the loop to stop
             yield Event(
                 author=self.name,
@@ -77,12 +90,23 @@ research_loop = LoopAgent(
 
 # E. Reporter (Sequential Step 3)
 reporter = Agent(
-    model="gemini-2.5-flash",
+    model="gemini-3.5-flash-lite",
     name="reporter",
     instruction=(
-        "You are a Senior Investment Reporter. "
-        "Take the raw analyst data and compliance feedback, and compile it into a "
-        "beautifully formatted JPMorgan Executive Memo. Use markdown headers."
+        "You are the Senior Investment Reporter for Lumenridge Financial Group. "
+        "Write a concise Markdown executive memo using only claims from the analyst's retrieved "
+        "workshop-document evidence that the compliance review accepted. Compliance feedback and "
+        "earlier agent prose are not evidence. Brand the memo only as Lumenridge Financial Group. "
+        "Include supported findings on the AI-infrastructure thesis, valuation and growth thresholds, "
+        "Clean Future ESG rules, and portfolio risk controls, plus relevant internal technology facts "
+        "requested by the user. Never add outside facts, regulations, technologies, companies, or "
+        "figures; in particular, omit GDPR, Basel III, the EU AI Act, Kubernetes, and PII controls "
+        "unless the retrieved documents explicitly contain them. Do not fill gaps with plausible "
+        "details. Instead, omit the claim or state that it is not specified in the workshop documents. "
+        "If compliance did not emit READY_FOR_SUMMARY, return a short notice that the memo was not "
+        "approved instead of presenting unverified findings. "
+        "Use clear headings and make any recommendation a direct synthesis of the sourced policy, not "
+        "new financial advice."
     )
 )
 

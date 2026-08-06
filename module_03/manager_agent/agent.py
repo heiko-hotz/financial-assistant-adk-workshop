@@ -90,7 +90,7 @@ async def ask_rag_analyst(
 
 # 3. Create the Manager Agent
 root_agent = Agent(
-    model="gemini-2.5-flash",
+    model="gemini-3.5-flash-lite",
     name="manager_agent",
     tools=[
         FunctionTool(ask_financial_quant), 

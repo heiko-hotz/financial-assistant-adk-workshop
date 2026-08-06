@@ -1,5 +1,5 @@
 
-# Unit Test for Module 2 (RAG Agent)
+# Live integration smoke test for Module 2 (RAG Agent)
 import sys
 import os
 import asyncio
@@ -8,7 +8,6 @@ from google.genai import types
 from google.adk.runners import Runner
 from google.adk.sessions.in_memory_session_service import InMemorySessionService
 
-# Ensure we can import the agent
 # Ensure we can import the agent
 # Add the project root to sys.path so we can import 'module_02'
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -38,6 +37,7 @@ async def run_test():
     query = "What are the key pillars of the investment policy?" 
     print(f"User > {query}")
 
+    responses = []
     try:
         async for event in runner.run_async(
             user_id="test_user",
@@ -46,11 +46,27 @@ async def run_test():
         ):
             if event.content and event.content.parts:
                 for part in event.content.parts:
-                    if part.text:
-                        print(f"Agent > {part.text}")
-        print("\n✅ Module 2 Test Passed!")
+                    if part.text and part.text.strip():
+                        text = part.text.strip()
+                        responses.append(text)
+                        print(f"Agent > {text}")
+
+        if not responses:
+            raise RuntimeError("The agent returned no text response.")
+
+        combined_response = "\n".join(responses).lower()
+        expected_facts = ("lumenridge", "p/e", "15%", "clean future", "12%")
+        missing_facts = [fact for fact in expected_facts if fact not in combined_response]
+        if missing_facts:
+            raise RuntimeError(
+                "The grounded response omitted expected policy facts: "
+                + ", ".join(missing_facts)
+            )
     except Exception as e:
         print(f"\n❌ Module 2 Test Failed: {e}")
+        raise
+
+    print("\n✅ Module 2 Test Passed!")
 
 if __name__ == "__main__":
     asyncio.run(run_test())
