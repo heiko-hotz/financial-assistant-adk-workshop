@@ -16,21 +16,21 @@ The core agent, `research_team`, is a **Sequential Agent** that orchestrates a t
 
 
 ### 1. Goal Refiner (The Planner)
-*   **Type**: `Agent` (Gemini 2.5 Flash)
+*   **Type**: `Agent` (Gemini 3.5 Flash-Lite)
 *   **Role**: Acts as the project lead. It takes the user's high-level, potentially vague question (e.g., "AI strategy?") and expands it into a detailed, technical research prompt suitable for a specialist analyst.
-*   **Goal**: Ensure the downstream agents have clear, actionable instructions.
+*   **Goal**: Ensure the downstream agents have clear, actionable instructions and use only facts retrieved from the simulated workshop documents.
 
 ### 2. Research Loop (The Execution Engine)
 *   **Type**: `LoopAgent`
 *   **Role**: Iteratively researches and reviews information to ensure quality *before* the final report is written.
 *   **Components**:
-    *   **RAG Analyst**: (Reused from Module 2) Uses the RAG tools to fetch real data from the JPMorgan docs.
-    *   **Compliance Officer**: (The Critic) Reviews the Analyst's findings for completeness and professional tone. If the findings are insufficient, it provides feedback for the next iteration. If satisfied, it outputs `READY_FOR_SUMMARY`.
-    *   **Termination Checker**: A custom `BaseAgent` that monitors the Compliance Officer. If it sees the "READY" signal, it immediately stops the loop, preventing unnecessary API calls.
+    *   **RAG Analyst**: (Reused from Module 2) Uses the RAG tools to fetch simulated data from the Lumenridge Financial Group docs.
+    *   **Compliance Officer**: (The Critic) Reviews the Analyst's findings for completeness, professional tone, and document support. It rejects unsupported claims and provides feedback for the next iteration. If the findings are fully grounded and sufficient, it outputs `READY_FOR_SUMMARY`.
+    *   **Termination Checker**: A custom `BaseAgent` that monitors the Compliance Officer. If the review starts with the `READY_FOR_SUMMARY` signal, it immediately stops the loop, preventing unnecessary API calls.
 
 ### 3. Reporter (The Writer)
-*   **Type**: `Agent` (Gemini 2.5 Flash)
-*   **Role**: Takes the verified, raw research data and the compliance feedback to synthesize a polished **JPMorgan Executive Memo**.
+*   **Type**: `Agent` (Gemini 3.5 Flash-Lite)
+*   **Role**: Uses only verified facts retrieved from the workshop documents to synthesize a polished **Lumenridge Financial Group Executive Memo**, without filling evidence gaps from general knowledge.
 *   **Output**: A professionally formatted Markdown document with headers, bullet points, and strategic insights.
 
 ## Key Concepts Demonstrated
@@ -50,7 +50,7 @@ When you run this agent, you will see a trace of the team working:
 4.  **Reporter**:
 
     ```markdown
-    # JPMorgan Chase & Co. Executive Memo
+    # Lumenridge Financial Group Executive Memo
     **To:** Executive Leadership Team
     **Subject:** AI Infrastructure Growth Strategy
     ...
