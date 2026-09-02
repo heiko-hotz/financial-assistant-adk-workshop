@@ -86,10 +86,11 @@ The API key itself is free, and Gemini 3.5 Flash-Lite currently offers free-tier
 ### 4. Running the Workshop
 Each module contains a Jupyter Notebook (`.ipynb`) for learning and a Python folder (e.g., `financial_agent_app/`) for the production-ready code.
 
-Start with Module 1:
+Start JupyterLab directly from your virtual environment:
 ```bash
-jupyter notebook module_01/01_fast_track_agent.ipynb
+python -m jupyter lab module_01/01_fast_track_agent.ipynb
 ```
+*(Running via `python -m jupyter lab` ensures Jupyter executes directly within your activated `.venv` and uses its installed packages and MCP tools.)*
 
 ### Free-tier rate limits
 
