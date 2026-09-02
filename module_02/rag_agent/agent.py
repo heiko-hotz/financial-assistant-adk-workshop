@@ -17,19 +17,25 @@ from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams,
 # Calculate absolute path to the database to ensure it works from any CWD
 db_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "demo_rag_db")
 
+import shutil
+
 # Define the Chroma Tool connection
 # This spins up a local MCP server that talks to your "./demo_rag_db" folder
-# We use 'uvx' to run the chroma-mcp server without global installation
+chroma_cmd = shutil.which("chroma-mcp")
+if chroma_cmd:
+    mcp_cmd = chroma_cmd
+    mcp_args = ["--client-type", "persistent", "--data-dir", db_dir]
+else:
+    mcp_cmd = "uvx"
+    mcp_args = ["chroma-mcp", "--client-type", "persistent", "--data-dir", db_dir]
+
 chroma_tool = McpToolset(
     connection_params=StdioConnectionParams(
         server_params=StdioServerParameters(
-            command="uvx", 
-            args=[
-                "chroma-mcp", 
-                "--client-type", "persistent",
-                "--data-dir", db_dir, # Use absolute path
-            ],
-        )
+            command=mcp_cmd, 
+            args=mcp_args,
+        ),
+        timeout=30.0
     )
 )
 
