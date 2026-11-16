@@ -12,7 +12,7 @@ The workshop follows a progressive "Crawl, Walk, Run" methodology, where you bui
 
 ### Phase 1: The Specialist (Module 1 & 2)
 You start by building individual experts:
-*   **The Quant**: connected to live market data tools to fetch stock prices and perform financial math.
+*   **The Quant**: uses simulated quotes and holdings to run portfolio stress tests, and can draft reusable ADK skills.
 *   **The Analyst**: grounded in internal knowledge (Investment Policies, Strategy Papers) using Retrieval-Augmented Generation (RAG).
 
 ### Phase 2: The Manager (Module 3)
@@ -27,7 +27,7 @@ You implement complex orchestration:
 
 | Module | Topic | Key Concepts |
 | :--- | :--- | :--- |
-| **[Module 1](module_01/)** | **The Zero-to-One Agent** | Tools, Function Calling, Basic Reasoning |
+| **[Module 1](module_01/)** | **From a Quote Tool to Portfolio Skills** | Function Calling, Skill Loading, Skill Authoring |
 | **[Module 2](module_02/)** | **RAG-Powered Agents** | Vector Ops, Embedding, Grounding, MCP |
 | **[Module 3](module_03/)** | **Workflow Agents** | Hierarchical Delegation, Routing, State |
 | **[Module 4](module_04/)** | **Complex Multi-Agent Systems** | Sequential & Loop Flows, Custom Logic, Self-Correction |
