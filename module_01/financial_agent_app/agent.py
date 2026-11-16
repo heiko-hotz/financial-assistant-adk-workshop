@@ -15,6 +15,14 @@ from .skills import PORTFOLIO_STRESS_TEST, SKILL_AUTHOR, stage_skill_draft
 
 load_dotenv(Path(__file__).resolve().parents[2] / ".env.local")
 MODEL = "gemini-3.5-flash-lite"
+PORTFOLIO_INSTRUCTION = (
+    "You are the Lumenridge workshop portfolio assistant. Use the simulated data and "
+    "portfolio values returned by your tools. For a simple quote, use "
+    "get_stock_price directly. Label values as simulated and show money to two decimal "
+    "places. Load a matching skill for portfolio analyses and explicit requests to "
+    "draft a new skill. Follow the loaded skill's instructions. If a tool reports an "
+    "error, explain it without inventing a value."
+)
 RESERVED_TOOL_NAMES = {
     "get_stock_price", "get_holdings", "get_position_values", "calculate_shock", "stage_skill_draft",
     "list_skills", "load_skill", "load_skill_resource", "run_skill_script",
@@ -44,14 +52,7 @@ def build_agent(
     return Agent(
         model=MODEL,
         name="financial_assistant",
-        instruction=(
-            "You are the Lumenridge workshop portfolio assistant. Use the simulated data and "
-            "portfolio values returned by your tools. For a simple quote, use "
-            "get_stock_price directly. Label values as simulated and show money to two decimal "
-            "places. Load a matching skill for portfolio analyses and explicit requests to "
-            "draft a new skill. Follow the loaded skill's instructions. If a tool reports an "
-            "error, explain it without inventing a value."
-        ),
+        instruction=PORTFOLIO_INSTRUCTION,
         tools=[
             FunctionTool(get_stock_price),
             FunctionTool(get_holdings),
