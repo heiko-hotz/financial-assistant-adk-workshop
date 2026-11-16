@@ -28,7 +28,7 @@ You implement complex orchestration:
 | Module | Topic | Key Concepts |
 | :--- | :--- | :--- |
 | **[Module 1](module_01/)** | **From a Quote Tool to Portfolio Skills** | Function Calling, Skill Loading, Skill Authoring |
-| **[Module 2](module_02/)** | **RAG-Powered Agents** | Vector Ops, Embedding, Grounding, MCP |
+| **[Module 2](module_02/)** | **Build and Benchmark a RAG Analyst** | Chunking, Retrieval Evaluation, Grounding, MCP |
 | **[Module 3](module_03/)** | **Workflow Agents** | Hierarchical Delegation, Routing, State |
 | **[Module 4](module_04/)** | **Complex Multi-Agent Systems** | Sequential & Loop Flows, Custom Logic, Self-Correction |
 
@@ -91,6 +91,14 @@ Start JupyterLab directly from your virtual environment:
 python -m jupyter lab module_01/01_fast_track_agent.ipynb
 ```
 *(Running via `python -m jupyter lab` ensures Jupyter executes directly within your activated `.venv` and uses its installed packages and MCP tools.)*
+
+Run the Module 2 Python retrieval lab from the repository root:
+
+```bash
+python -m module_02.rag_lab
+```
+
+See [Module 2](module_02/) for the experiment and the optional live ADK step.
 
 ### Free-tier rate limits
 

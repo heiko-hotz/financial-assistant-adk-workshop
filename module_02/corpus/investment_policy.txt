@@ -1,0 +1,88 @@
+Lumenridge Financial Group - Strategic Investment Policy (2025)
+SIMULATED INTERNAL DOCUMENT | Investment Office | Effective 2 January 2025
+
+1. Purpose and Scope
+
+This policy governs the simulated portfolios managed by the Investment Office. Its scope includes listed equities, pooled funds, and cash instruments held in discretionary accounts. The portfolio mandate sets any additional restrictions for a specific client. Apply the stricter rule when a mandate and this policy cover the same exposure. Refer ambiguous cases to Investment Compliance before placing an order.
+
+The portfolio manager owns the investment case and maintains the record of every proposed trade. Investment Risk maintains the methodology for exposure calculations and verifies the numbers used at pre-trade review. Investment Operations staff reconcile orders against executed positions before the next dealing session. Each function records its own review in the portfolio record so the decision can be reconstructed later.
+
+The Investment Committee reviews this policy annually. The Investment Office tracks the effective date of each approved version in the policy register. When considering a historical trade, use the policy and mandate that were in effect on the trade date.
+
+2. Technology Growth Strategy
+
+The Investment Office favors AI infrastructure within its technology allocation. The research list emphasizes companies that make high-performance semiconductors, provide data center cooling, or supply renewable energy for computational power. Analysts should identify where the issuer earns its revenue, how concentrated its customer base is, and whether the current investment program depends on a single facility or supplier.
+
+Technology candidates should have a price-to-earnings ratio below 40 and year-over-year growth above 15%. Use the latest available annual financial statements and document the period used for both figures. Write down any adjustments made for exceptional income or expenses. Defer the proposal if the team cannot reconcile a material adjustment to published results. Avoid legacy hardware providers whose main business serves declining product lines.
+
+The investment case should reflect the economics of the individual issuer. A supplier can satisfy the technology screen and still expose the portfolio to the same financing conditions or customers as another holding. Check for this overlap before recommending an allocation.
+
+3. Ethical and ESG Guidelines
+
+All investments must meet the Clean Future initiative's eligibility rules. The policy prohibits investment in coal mining and tobacco production. The prohibition applies to the activity identified in the issuer's filings, including production carried out by a subsidiary. The research note should record any relevant information about joint ventures and recent acquisitions.
+
+Companies must have a board diversity score of at least 30%. Technology companies must publish a Responsible AI framework. The analyst records where the framework was published and checks that its scope includes the issuer's commercial products. Reopen the review after an acquisition that materially changes the issuer's product mix.
+
+Investment Compliance maintains the source list used for ethical screening. If an issuer's published information conflicts with a vendor classification, capture both sources and refer the discrepancy to Investment Compliance. The clearance record should describe which source the team relied on and when the next review is due.
+
+4. Position Sizing
+
+The maximum allocation to a single stock is 5% of the total portfolio. Include the proposed order, existing holdings, and outstanding orders for the same issuer in the pre-trade calculation. Value the position and the total portfolio at the same time, using the account's reporting currency. Reduce or cancel an order that would put the issuer above the applicable cap.
+
+Calculate concentration separately for each portfolio. Flag evidence gaps when the desk is waiting for a position transfer to settle or for an updated price on a suspended stock. A portfolio manager should defer any trade whose eligibility depends on a value that Investment Risk cannot verify.
+
+Investment Risk sends a concentration report shortly before the morning dealing window. Use the report to identify positions that need an updated price or an issuer mapping review. Analysts can propose a reduction in an existing position when a new purchase would take total exposure close to the cap. Submit the paired orders together so Operations can check how partial execution would affect exposure.
+
+5. Portfolio Risk and Stop Orders
+
+The portfolio's annualized volatility must not exceed 12%. Investment Risk updates the estimate after major changes in positions or market conditions. Portfolio managers review the contribution of sector, currency, and correlated issuer exposures. If a proposal would increase an already large contribution, document the effect on the portfolio's risk before seeking approval.
+
+Every speculative technology position requires a stop-loss order at 15% below the entry price. The portfolio manager records the speculative classification when submitting the trade and confirms that Operations linked the stop order to the same position. Review order sizes and trigger prices after a split or similar corporate action.
+
+A stop order can execute at a different price from its trigger when prices gap or liquidity dries up. Include a gap scenario and an estimated exit cost in the risk note for a speculative position. The portfolio manager reviews the simulated loss alongside the position's contribution to portfolio volatility.
+
+6. Exceptions and Remediation
+
+A passive breach caused solely by market appreciation may be held for up to 10 business days while the desk reduces the position. The exception applies to the single-stock cap in section 4. The Chief Risk Officer must approve the temporary exception in writing. Record the proposed exit schedule, the current percentage, and any expected liquidity constraints in the request.
+
+During an approved concentration exception, the desk may reduce the position and may continue to hold it on the agreed timetable. The desk may not place orders that increase the exposure. If the position moves back within the limit before a sale, record how the breach was resolved and close the case.
+
+Treat an active breach caused by a new purchase as a trade control incident. Notify Investment Compliance and Investment Risk on the day of discovery. Cancel outstanding orders that would add exposure and agree on a correction plan before replacing any ticket. Record the order reference, execution time, and price used in the pre-trade calculation.
+
+Use the exceptions register for portfolio breaches, valuation waivers, and missed report deadlines. A reporting deadline extension affects the time allowed to submit a report. A concentration exception affects the exposure the desk may carry. Incomplete notifications remain open in the register until the owner provides the required evidence.
+
+7. Liquidity and Deal Execution
+
+Estimate the time needed to sell an equity position under normal market conditions and under a scenario in which turnover drops by half. Use venue volume for the specific share line proposed for trading. If meaningful liquidity sits on a second venue, document the conversion terms and settlement timetable before counting that volume.
+
+A regular equity order should stay within 5% of the security's average daily volume. The Dealing Supervisor may approve an execution plan above that threshold after reviewing recent volume, venue availability, and the expected market impact. Save the plan with the order. If more than one desk could trade the same name that day, consolidate the planned orders before estimating participation.
+
+For large positions nearing a risk limit, record the order in which potential reductions would be made and which internal desk will monitor execution. Trades expected to span more than one session should have a named owner at the end of each trading day. The owner updates the cash forecast after the first execution and rechecks the portfolio's ability to settle the remaining orders.
+
+8. Pooled Funds and Cash
+
+For a proposed investment in a listed fund, review the size of the fund, the transparency of its holdings, and the ability of the desk to sell during a stressed session. The portfolio manager should know whether the portfolio can redeem units with the provider and how cash arrives after a redemption. Save the provider documents used to establish the settlement cycle.
+
+A single pooled fund may make up at most 8% of a portfolio, subject to the mandate. Review the fund's largest holdings for overlap with direct equity positions. If the portfolio's own mandate calls for a look-through calculation, document the latest holdings date and the exposure aggregated to each issuer. Escalate a material gap when reporting lags make a look-through calculation unreliable.
+
+Treasury maintains a rolling cash forecast of pending settlements, expected fees, corporate actions, and withdrawals. The dealing desk checks the forecast before committing to a purchase that materially reduces cash. Record the assumptions used when a pending inflow is expected to fund the order.
+
+9. Technology Research Ratings
+
+In the Investment Office's 2025 technology research list, NVDA carries a Strong Buy rating. GOOG carries a Buy rating. MSFT is rated Hold. INTC is rated Underweight.
+
+A rating expresses the research team's view. The portfolio manager still checks concentration, volatility, and ethical eligibility before proposing a trade. Save the research date and explain which developments could lead the team to revisit the rating. A lower valuation following a price fall can strengthen an investment case if the assumptions about earnings and demand still hold.
+
+The research lead updates the rating list after the regular investment meeting and distributes it to portfolio management. Document any disagreement between a desk's exposure view and the published rating in the decision record. Keep the portfolio trade proposal linked to its supporting research so another analyst can review the judgment later.
+
+10. Monitoring and Reporting
+
+The morning controls review covers concentration, liquidity, projected cash, and open incidents. Each report should identify the account, observation time, and person responsible for investigating anomalies. Escalate a missing portfolio report to the reporting lead if the file has not arrived within 30 minutes of the scheduled distribution.
+
+The monthly investment pack summarizes significant changes over the period, open policy exceptions, and outcomes of trades that were deferred or canceled. Attach the most recent risk estimates and a short explanation of their movement. Include the date on which the team expects to revisit a judgment if it is based on temporary conditions such as lower trading activity during a holiday week.
+
+Investment Compliance performs periodic sampling of approvals and source references. A satisfactory record shows the evidence the desk relied on and identifies the people who approved the trade or exception. Any later amendment should preserve the original decision and state why the record changed.
+
+11. Workshop Notice
+
+Lumenridge Financial Group and the situations described in this policy are fictional. The thresholds, market assumptions, and ticker ratings are training examples. This document does not constitute financial advice.

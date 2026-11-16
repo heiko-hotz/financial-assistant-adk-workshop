@@ -1,0 +1,68 @@
+Lumenridge Financial Group — Global Market Outlook 2025
+January 2025 research note for public distribution
+
+This fictional report uses simulated forecasts and model portfolio views for workshop exercises. The scenarios describe the research team's assumptions at the beginning of 2025 and are provided for training purposes.
+
+1. Economic Forecast
+Our base case is a soft landing, with US inflation stabilizing at 2.1%. Slower rent growth and moderate wage gains contribute most of the decline in the model. The pace of consumption slows through spring as households refinance debt at higher rates, while the broader labor market remains resilient enough to support modest gains in real income.
+
+We expect the Federal Reserve to cut rates by 50 basis points in the third quarter. The forecast assumes that the inflation rate stays close to target over several months and payroll growth cools gradually. The rate path is a central case for scenario planning. Analysts should track the pace of wage settlements and revisions to the prior quarter's employment estimates before translating the forecast into changes in duration.
+
+The European scenario uses a softer demand assumption because of weaker manufacturing surveys and a slower recovery in bank lending. Our inflation assumption for the euro area is 2.4% at the end of the year. A stronger euro would make that trajectory more likely by reducing imported costs, while a jump in energy prices could temporarily lift the headline figure.
+
+A separate downside scenario assumes a sharper drop in hiring and a 75 basis point US policy rate cut in the fourth quarter. The scenario helps our portfolio teams estimate the effect of weak demand on credit spreads. Its probability is assessed at each outlook review alongside the base case.
+
+2. Emerging Markets
+India and Vietnam are expected to be the fastest-growing economies in our emerging-markets coverage. The India forecast reflects public investment and relatively strong domestic services demand. The Vietnam forecast relies on export orders and manufacturing investment linked to regional supply chains. Both forecasts carry downside risks if external demand or dollar financing conditions deteriorate.
+
+We recommend increasing exposure to Southeast Asian manufacturing ETFs. Portfolio teams should compare country weights and largest holdings when assessing funds exposed to the theme. Some funds classified as diversified regional vehicles have concentrated exposure to a handful of semiconductor manufacturers, while others provide broader exposure to logistics, industrial property, and component suppliers.
+
+The equity team will review the recommendation if new export orders fall for two successive quarters or if capital spending is delayed across several manufacturing hubs. Freight and inventory indicators are available earlier in the quarter than official activity measures, but their precision varies by market. We use them as triggers to review the next full round of forecasts.
+
+The reassessment criteria include local financing conditions. Companies funding new factory capacity with short-term dollar debt remain exposed to higher refinancing costs. Where country-level flows look strong, our analysts will review whether the expansion is driven by new orders or a single investment incentive that could expire before output comes online.
+
+3. Commodities
+Gold remains a recommended hedge against geopolitical instability. We model a wider range for gold than for defensive government bonds because the price can react to several drivers at once. A sustained fall in real rates would support prices in the base case, while a rapid recovery in real yields could partially offset demand for protection.
+
+We expect oil to average $75 per barrel in 2025. The forecast assumes that increased supply from non-OPEC nations offsets moderate increases in consumption. Maintaining a calendar-year average allows our equity analysts to compare cash flow sensitivities across producers with different seasonal production profiles. The research team will update the supply assumptions after the first quarter of announced project starts.
+
+Our disruption scenario uses $90 per barrel for the second half of the year. That scenario assumes a short shipping interruption and a slower release of backup inventories. Increased production elsewhere gradually offsets the shortage. We use the scenario to test exposure to fuel costs in airlines, distribution businesses, and manufacturers with energy-intensive production schedules.
+
+Copper demand remains tied to the pace of grid investment in our industrial scenario. We look for developments in power equipment orders and recycling volumes when revising the forecast. Several large investment projects can shift physical demand into later quarters, so our commodities team tracks procurement contracts alongside companies' announcements about total spending.
+
+4. Crypto Assets
+Institutional adoption of Bitcoin ETFs has stabilized volatility in our base case. More direct access to regulated investment vehicles helps explain the change in participation. We continue to model large price moves in periods of forced selling. The risk team also tracks liquidity during time windows when traditional markets are closed.
+
+We maintain a Neutral rating on crypto for conservative portfolios. The outlook assumes these portfolios place greater weight on stable drawdowns and liquidity during periods of market stress. Analysts who prepare commentary for conservative portfolios should report the potential volatility contribution using the risk model for the mandate.
+
+Market liquidity estimates are strongest for larger funds and during periods of ordinary inflows and outflows. The research team sees more uncertainty in the depth of the market during prolonged redemptions, especially when other asset classes are also selling off. The outlook review includes a stress simulation based on the trade sizes we expect from a typical discretionary account.
+
+We maintain an Overweight rating on crypto for high-risk growth funds. This view reflects the potential return contribution under the base case and those funds' ability to tolerate large fluctuations. The portfolio review should include a separate assessment of the liquidity available relative to the fund's position size. Funds are still subject to the governing constraints and approval procedures set out in their investment documents.
+
+5. Developed Market Equities
+The US equity outlook depends in part on when technology businesses begin to turn infrastructure spending into recurring revenue. Orders for data center power and cooling equipment provide useful indirect signals. We will compare those orders with the regional supply of electricity and delivery schedules to assess how quickly the additional capacity could be used.
+
+European industrial forecasts assume gradual improvement in the second half of the year. Equipment manufacturers with a high share of aftermarket services may be better positioned through the first two quarters of slow order growth. The team is tracking the share of revenue that comes from service agreements and the timing of scheduled maintenance at large plants.
+
+The Japan outlook concentrates on wage growth and operating margin. A stronger wage settlement could support domestic consumer spending while also raising the cost base for employers. Analysts should consider how individual companies have handled price increases in the past and estimate the lag between higher pay and their ability to adjust margins.
+
+6. Portfolio Scenarios
+The base case assumes an orderly rotation across sectors as funding costs decline gradually. Under this path, companies with healthy balance sheets should be able to refinance on manageable terms. The most useful research work during spring will be to evaluate near-term debt maturities and adjust assumptions for issuers that have a high proportion of floating-rate liabilities.
+
+In the downside demand scenario, fixed costs create more pressure for smaller firms as sales volumes weaken. Our scenario model assumes a 5% decline in developed market equity earnings relative to the base case. Portfolio leads should use this assumption when stress testing forecast earnings in exposed sectors and record the second-order impact of weaker demand on suppliers.
+
+Our inflation rebound scenario assumes shipping and utility costs increase together. The analytical team expects to see the effect in import prices before it appears in retail costs. The weekly monitoring package will show indicators covering both stages. The scenario also includes a wider range of issuer outcomes based on the ability to pass through higher operating costs.
+
+Some exposures respond differently to combinations of shocks. A renewable energy producer with long-term contracted pricing can have a stable revenue forecast while also facing more expensive project financing. The scenario team asks analysts to show how they model the interaction, particularly when a portfolio holds a supplier and its customer at the same time.
+
+7. Review Schedule
+The research office will issue a scheduled outlook review at the end of each quarter. Each review will report what changed in the forecast and identify which assumptions drove the change. Analysts covering an asset class should mark estimates that were revised after the latest data became available and attach their monitoring notes to the internal dashboard.
+
+An unscheduled review may follow a central bank surprise, a major supply interruption, or evidence of a sustained shift in household demand. The research lead will select the scenarios to rerun and identify any estimated impact on portfolio views. For a cross-market event, the team begins with exposures shared by several desks, then reviews local factors with the relevant analysts.
+
+Portfolio teams use the review to identify scenarios that deserve more attention. Managers should bring a recent forecast error and describe which monitoring signal would have detected it sooner. The discussion record should show the revised assumption, the reason for the change, and which risk models incorporate it. A later revision of historical data should be logged with the date it became available to the team.
+
+8. Distribution and Use
+This outlook covers research views for the calendar year. Asset ratings in this note are research inputs for the portfolios described in each section. Each portfolio's investment documents describe the applicable allocation limits, governance, and approval requirements. Published estimates are reviewed on their stated schedule and may change with economic conditions.
+
+The attribution table maintained by the research office links forecast changes to economic releases, issuer updates, and decisions recorded during the outlook review. Analysts should use the published date to distinguish this edition from archived forecasts. Department heads may request further scenario work through the ordinary planning cycle when a portfolio decision involves a material exposure to a forecast assumption.

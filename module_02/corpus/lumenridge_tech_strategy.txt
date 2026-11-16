@@ -1,0 +1,64 @@
+Lumenridge Financial Group — Technology Strategy 2025
+Technology Office memo to engineering leads, effective January 2025
+
+This fictional strategy memo is provided for workshop exercises. It describes a simulated technology organization and its operating controls.
+
+1. Cloud Migration
+We have completed 85% of the migration to our hybrid cloud environment. That figure is the share of scheduled workloads that have passed their migration health check. Workloads that have only copied their data into the new environment are still classified as in progress. Platform Operations owns the count and reconciles it against the service inventory at the close of each month.
+
+The remaining legacy mainframe applications will be refactored by Q4 2025. The estate includes reconciliation, settlement exception handling, and a nightly ledger export. The teams responsible for those workloads will complete parallel runs with Operations before retiring the original jobs. Engineering leads should plan for the cost of duplicate processing through the end of the migration window and flag any slippage at the monthly delivery review.
+
+Each application team must identify a rollback point and the engineer authorized to initiate rollback. During parallel runs, the team will record any discrepancies against the legacy output and classify them with the relevant operations owner. A batch job reaching the new environment therefore marks a deployment milestone. Decommissioning follows a separate sign-off after the service has demonstrated a stable operating cycle.
+
+2. Developer Experience
+The Platform Engineering team maintains a catalog of templates for Git repositories, test environments, and service deployment. Teams should start with a template and record deviations in their service documentation. The catalog includes a small example for each language in use and a checklist for rotating service credentials in a non-production environment.
+
+All new projects must use the Agent Development Kit (ADK) for AI-powered features. The reference implementation shows how to connect a tool, keep tool inputs narrow, and put an approval service in front of any action that can change a financial record. The Python templates use uv for tool and environment management. Owners may bring a dependency issue to the engineering consultation session before promoting the affected project.
+
+ChatBot V1 is deprecated immediately. Existing service owners must contact Platform Engineering to plan transitions and arrange temporary compatibility support for their open migrations. Feature requests that rely on new integrations should be scheduled against an ADK replacement. Teams should budget time to update the evidence captured by their tool traces when migrating existing interactions.
+
+3. Service Security
+Zero Trust architecture is mandatory for all internal APIs. Every caller presents an identity, every service checks that identity against an authorized scope, and a successful call grants access for the duration of that request. Application teams manage authorization rules in their deployment configuration, supported by the platform team's centrally issued service identities.
+
+Security Engineering maintains sample mesh policies for build services, reporting services, and transaction systems. These samples include the metrics owners should publish when an authorization check fails. A service owner may request a review of a new call pattern when it requires broader scope. The request must include a data flow diagram and show how the design lets the operator identify the principal responsible for the call.
+
+Connections across company networks are subject to the same identity checks as calls within a single environment. Engineers investigating a failing service should use the short-lived credential procedure from the operations handbook. Support teams review use of elevated credentials in the first business-day operations meeting following an incident.
+
+4. AI Agent Controls
+A read-only agent may retrieve information under its caller's access scope and present supporting material in the chat. An agent with a transaction tool must route requests through the transaction authorization service. The platform team tracks which capabilities are enabled in each environment and asks service owners to recheck their permissions after adding a tool.
+
+An AI agent must obtain human validation before executing any transaction over $10,000. The transaction owner will see the amount, payee, and reason for the proposed action in the approval screen. The authorization service stores the decision with the transaction record and gives the agent a reference that can be included in the user-visible result.
+
+Transaction amounts are evaluated by the authorization service in the reporting currency recorded for the relevant business line. A revised amount or beneficiary requires a fresh submission because the prior approval applies to the details shown to the reviewer. Engineering teams should include tests for requests close to the approval threshold and requests that arrive after the original session has expired.
+
+The simulation environment supports a $25,000 batch limit for settlement rehearsals. Sessions crossing that limit must be restarted as separate supervised exercises. The Transaction Operations team owns the rehearsal schedule and tracks usage as part of the quarterly readiness review.
+
+5. Operational Resilience
+Product teams must maintain an on-call schedule and a short explanation of the signals that indicate customer or adviser impact. Dashboards should make it possible to distinguish an internal delay from a failure at a downstream provider. The platform team will use the next incident exercise to check whether the on-call engineer can still access the necessary tools during an identity provider disruption.
+
+Settlement and journal services run a restoration exercise each quarter. The target is to demonstrate recovery within four hours using the documented backup procedure. Read-only research services test recovery twice per year, with an eight-hour target. The exercise record should state the age of the recovered data, the start and end time, and any manual intervention needed for reconciliation.
+
+The quarterly exercise also covers a communications handoff. The initial incident update identifies the affected service, the symptoms seen by customers, and the time of the next update. A service restored in the test environment still needs a business owner to confirm that the recovered records support the expected workflow. Owners should treat a failed verification as an input to their maintenance backlog.
+
+6. Release Management
+Production releases follow a rolling deployment plan with a named owner in the change calendar. The owner is responsible for watching service indicators and ending the rollout if the agreed thresholds are exceeded. Each deployment entry records the planned change, the rollback procedure, and a link to the results from the staging environment.
+
+Teams introducing a tool that performs an external action must demonstrate its access checks and trace the result back to a sandbox record. The staging demonstration should include an approval that expires before the action is attempted. The reviewer should be able to find the reason the tool stopped without inspecting a model transcript. Platform Engineering will provide a sample test case as part of the agent starter repository.
+
+Service owners coordinate releases with market operations during the final three business days of each month. Higher-risk migrations should be aligned with a rehearsal slot and an available business owner. The approval calendar shows times blocked for scheduled reconciliation, simulations, and regulatory reporting. Change requests need enough lead time for those owners to verify their availability.
+
+7. Data Handling
+Teams that move records into managed storage should keep a map of source systems and retention periods. The map should identify sensitive fields, their display controls, and who can authorize a schema change. Logs and event captures must follow the service's retention schedule even when exported to a system used for troubleshooting.
+
+The default retention period for transaction agent audit logs is 180 days. Evaluation runs using workshop fixtures may use a shorter retention period because they represent no customer activity. The data steward can approve longer retention for a documented investigation or regulatory reporting requirement. Service owners should test their record deletion job in a staging environment and attach the result to the operational readiness review.
+
+Agent traces should include enough information for an operator to identify the tool call and the approval decision. Each service team reviews the fields in its trace format with the data steward before the first production release. Product teams should record the scope checked by the authorization service and use stable references for evidence that opens in a separate system.
+
+8. Planning and Review
+Engineering managers will review work against three outcomes during the first half of the year. The first is the number of remaining legacy applications within each migration wave. The second is the number of AI services with traceable authorization controls. The third is the time taken to restore critical services during scheduled exercises. Metrics will be reported by service and rolled up by business line for the technology steering group.
+
+Budget owners may reserve up to $10,000 for a team training event under the standard professional development policy. Requests follow the ordinary procurement process and should include the number of attendees, requested dates, and expected skill improvements. Training requests appear as a separate line in the quarterly review because they support multiple engineering objectives.
+
+Teams may request help from the Platform Engineering office hours for onboarding, deployment design, or a migration plan. Bring a small example that demonstrates the current behaviour and a clear decision the team needs to make. The office hours facilitator will summarize recurring issues for the platform backlog. Each engineering lead remains accountable for carrying the proposed change through the team's own review and release process.
+
+The steering group will revisit staffing allocations at the end of the second quarter. Managers proposing a change should describe incident responsibilities, outstanding migration work, and any vendor dependencies that affect delivery dates. Cross-team dependencies will be tracked in the delivery register along with their impact on the quarter's targets. Updates significant enough to change the annual roadmap should be recorded in the monthly technology decision log.

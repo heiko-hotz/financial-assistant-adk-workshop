@@ -1,0 +1,130 @@
+[
+  {
+    "id": "stock-cap",
+    "question": "What is the largest share of the portfolio a single stock can represent under the general rule?",
+    "evidence": [
+      {
+        "source": "investment_policy.txt",
+        "quote": "The maximum allocation to a single stock is 5% of the total portfolio."
+      }
+    ]
+  },
+  {
+    "id": "cap-exception",
+    "question": "What is the general single-stock cap? If market appreciation alone puts the portfolio over it, how long can the desk hold the position and who must approve the exception?",
+    "evidence": [
+      {
+        "source": "investment_policy.txt",
+        "quote": "The maximum allocation to a single stock is 5% of the total portfolio."
+      },
+      {
+        "source": "investment_policy.txt",
+        "quote": "A passive breach caused solely by market appreciation may be held for up to 10 business days while the desk reduces the position. The exception applies to the single-stock cap in section 4."
+      },
+      {
+        "source": "investment_policy.txt",
+        "quote": "The Chief Risk Officer must approve the temporary exception in writing."
+      }
+    ]
+  },
+  {
+    "id": "risk-limits",
+    "question": "What are the portfolio volatility ceiling and the required stop-loss for a speculative technology position?",
+    "evidence": [
+      {
+        "source": "investment_policy.txt",
+        "quote": "The portfolio's annualized volatility must not exceed 12%."
+      },
+      {
+        "source": "investment_policy.txt",
+        "quote": "Every speculative technology position requires a stop-loss order at 15% below the entry price."
+      }
+    ]
+  },
+  {
+    "id": "order-volume",
+    "question": "How much of a stock's normal daily trading volume may a regular order consume, and who can sign off on a larger execution plan?",
+    "evidence": [
+      {
+        "source": "investment_policy.txt",
+        "quote": "A regular equity order should stay within 5% of the security's average daily volume."
+      },
+      {
+        "source": "investment_policy.txt",
+        "quote": "The Dealing Supervisor may approve an execution plan above that threshold after reviewing recent volume, venue availability, and the expected market impact."
+      }
+    ]
+  },
+  {
+    "id": "tech-screen",
+    "question": "Which valuation and growth thresholds apply when the desk screens an AI infrastructure investment?",
+    "evidence": [
+      {
+        "source": "investment_policy.txt",
+        "quote": "Technology candidates should have a price-to-earnings ratio below 40 and year-over-year growth above 15%."
+      }
+    ]
+  },
+  {
+    "id": "agent-approval",
+    "question": "Above what amount must an AI agent get a human to validate a transaction before executing it?",
+    "evidence": [
+      {
+        "source": "lumenridge_tech_strategy.txt",
+        "quote": "An AI agent must obtain human validation before executing any transaction over $10,000."
+      }
+    ]
+  },
+  {
+    "id": "cloud-plan",
+    "question": "How much of the hybrid cloud migration is complete, and when are the remaining legacy mainframe apps expected to be refactored?",
+    "evidence": [
+      {
+        "source": "lumenridge_tech_strategy.txt",
+        "quote": "We have completed 85% of the migration to our hybrid cloud environment."
+      },
+      {
+        "source": "lumenridge_tech_strategy.txt",
+        "quote": "The remaining legacy mainframe applications will be refactored by Q4 2025."
+      }
+    ]
+  },
+  {
+    "id": "economic-outlook",
+    "question": "In the base case, where does US inflation settle, and how large a Fed rate cut is expected and when?",
+    "evidence": [
+      {
+        "source": "market_outlook_2025.txt",
+        "quote": "Our base case is a soft landing, with US inflation stabilizing at 2.1%."
+      },
+      {
+        "source": "market_outlook_2025.txt",
+        "quote": "We expect the Federal Reserve to cut rates by 50 basis points in the third quarter."
+      }
+    ]
+  },
+  {
+    "id": "oil-base-case",
+    "question": "What price does the outlook forecast for oil on average over the full year in its base case?",
+    "evidence": [
+      {
+        "source": "market_outlook_2025.txt",
+        "quote": "We expect oil to average $75 per barrel in 2025."
+      }
+    ]
+  },
+  {
+    "id": "crypto-ratings",
+    "question": "How does the outlook's crypto investment rating differ for conservative portfolios and high-risk growth funds?",
+    "evidence": [
+      {
+        "source": "market_outlook_2025.txt",
+        "quote": "We maintain a Neutral rating on crypto for conservative portfolios."
+      },
+      {
+        "source": "market_outlook_2025.txt",
+        "quote": "We maintain an Overweight rating on crypto for high-risk growth funds."
+      }
+    ]
+  }
+]
