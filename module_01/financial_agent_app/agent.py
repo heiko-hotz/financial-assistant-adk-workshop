@@ -9,14 +9,14 @@ from google.adk.skills.models import Skill
 from google.adk.tools import FunctionTool
 from google.adk.tools.skill_toolset import SkillToolset
 
-from .portfolio import calculate_shock, get_holdings, get_stock_price
+from .portfolio import calculate_shock, get_holdings, get_position_values, get_stock_price
 from .skills import PORTFOLIO_STRESS_TEST, SKILL_AUTHOR, stage_skill_draft
 
 
 load_dotenv(Path(__file__).resolve().parents[2] / ".env.local")
-MODEL = "gemini-4-hydrogen"
+MODEL = "gemini-3.5-flash-lite"
 RESERVED_TOOL_NAMES = {
-    "get_stock_price", "get_holdings", "calculate_shock", "stage_skill_draft",
+    "get_stock_price", "get_holdings", "get_position_values", "calculate_shock", "stage_skill_draft",
     "list_skills", "load_skill", "load_skill_resource", "run_skill_script",
     "search_skills", "unload_skill",
 }
@@ -45,14 +45,19 @@ def build_agent(
         model=MODEL,
         name="financial_assistant",
         instruction=(
-            "You are the Lumenridge workshop portfolio assistant. Use only the simulated "
-            "holdings and stock prices returned by your tools. For a simple quote, use "
+            "You are the Lumenridge workshop portfolio assistant. Use the simulated data and "
+            "portfolio values returned by your tools. For a simple quote, use "
             "get_stock_price directly. Label values as simulated and show money to two decimal "
             "places. Load a matching skill for portfolio analyses and explicit requests to "
             "draft a new skill. Follow the loaded skill's instructions. If a tool reports an "
             "error, explain it without inventing a value."
         ),
-        tools=[FunctionTool(get_stock_price), FunctionTool(get_holdings), skill_tools],
+        tools=[
+            FunctionTool(get_stock_price),
+            FunctionTool(get_holdings),
+            FunctionTool(get_position_values),
+            skill_tools,
+        ],
     )
 
 

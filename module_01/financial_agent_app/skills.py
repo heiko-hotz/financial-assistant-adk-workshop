@@ -51,12 +51,15 @@ metadata:
 
 Write the named calculation function in plain Python with type annotations, a docstring,
 and a dictionary result. Use a single top-level function with no other top-level code.
-Use only the input values and ordinary arithmetic. Keep data access in the existing
-holdings and quote tools. Check the input domain and explain the result units in the
+Use only the input values and ordinary arithmetic. Retrieve fixture data with the
+existing agent tools. Check the input domain and explain the result units in the
 function docstring. The function name must match the additional tool in the frontmatter.
 
-For a target portfolio weight, the function takes current_position_value,
-other_portfolio_value (including cash), and target_weight as a fraction such as 0.05.
+For a target portfolio weight, tell the skill to call get_position_values(ticker).
+Pass its current_position_value and other_portfolio_value directly to the calculator.
+These two fields already include the relevant valuation and cash. If the tool returns
+an error, report it and stop. The calculator also takes target_weight as a fraction
+such as 0.05.
 The position changes while the other value stays fixed. Return the required change as
 a signed percentage under required_move_pct. A $4,000 position and $95,000 elsewhere
 need a 25% rise to reach a 5% target. Negative values represent a fall.

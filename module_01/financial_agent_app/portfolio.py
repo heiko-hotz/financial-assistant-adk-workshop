@@ -32,6 +32,36 @@ def get_holdings() -> dict:
     }
 
 
+def get_position_values(ticker: str) -> dict:
+    """Return one simulated holding's USD value and the value of everything else, including cash."""
+    quote = get_stock_price(ticker)
+    if "error" in quote:
+        return quote
+
+    symbol = quote["symbol"]
+    snapshot = get_holdings()
+    holdings = snapshot["holdings"]
+    if symbol not in holdings:
+        return {"symbol": symbol, "error": f"{symbol} is not in the simulated portfolio."}
+
+    current_position_value = holdings[symbol] * Decimal(str(quote["price"]))
+    other_portfolio_value = Decimal(snapshot["cash"])
+    for other_symbol, shares in holdings.items():
+        if other_symbol != symbol:
+            other_quote = get_stock_price(other_symbol)
+            if "error" in other_quote:
+                return {"symbol": symbol, "error": other_quote["error"]}
+            other_portfolio_value += shares * Decimal(str(other_quote["price"]))
+
+    return {
+        "symbol": symbol,
+        "current_position_value": float(current_position_value),
+        "other_portfolio_value": float(other_portfolio_value),
+        "currency": snapshot["currency"],
+        "source": snapshot["source"],
+    }
+
+
 def _decimal_number(value: object) -> Decimal | None:
     if type(value) is int:
         return Decimal(value)

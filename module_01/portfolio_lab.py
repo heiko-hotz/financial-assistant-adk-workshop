@@ -106,7 +106,7 @@ def main() -> None:
     parser.add_argument("--reviewed-tool", help="Reviewed, importable Python function (MODULE:FUNCTION)")
     parser.add_argument(
         "--model-call-interval", type=model_call_interval, default=0,
-        help="Minimum seconds between model calls; use 13 for a 5 requests/minute quota.",
+        help="Minimum seconds between model calls. Adjust to your project's quota.",
     )
     args = parser.parse_args()
     if bool(args.reviewed_skill) != bool(args.reviewed_tool):

@@ -4,6 +4,7 @@ import unittest
 from module_01.financial_agent_app.portfolio import (
     calculate_shock,
     get_holdings,
+    get_position_values,
     get_stock_price,
 )
 
@@ -42,6 +43,30 @@ class SimulatedFixtureTests(unittest.TestCase):
         )
         first_snapshot["holdings"]["LUMR"] = 0
         self.assertEqual(get_holdings()["holdings"]["LUMR"], 20)
+
+    def test_position_values_exclude_target_holding_from_other_value(self):
+        for ticker, symbol, current, other in (
+            (" lumr ", "LUMR", 4_910, 95_090),
+            ("AAPL", "AAPL", 18_000, 82_000),
+        ):
+            with self.subTest(ticker=ticker):
+                self.assertEqual(
+                    get_position_values(ticker),
+                    {
+                        "symbol": symbol,
+                        "current_position_value": current,
+                        "other_portfolio_value": other,
+                        "currency": "USD",
+                        "source": "simulated",
+                    },
+                )
+
+    def test_position_values_error_for_unknown_and_unheld_tickers(self):
+        for ticker, message in (("ZZZZ", "No simulated quote"), ("goog", "not in the simulated portfolio")):
+            with self.subTest(ticker=ticker):
+                result = get_position_values(ticker)
+                self.assertEqual(set(result), {"symbol", "error"})
+                self.assertIn(message, result["error"])
 
 
 class ShockTests(unittest.TestCase):

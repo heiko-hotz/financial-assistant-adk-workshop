@@ -120,6 +120,7 @@ async def check_author(runner: InMemoryRunner, pacer: ModelCallPacer) -> None:
         (skill_dir / "SKILL.md").write_text(draft["skill_markdown"], encoding="utf-8")
         skill = load_skill_from_dir(skill_dir)
     assert skill.frontmatter.metadata["adk_additional_tools"] == ["calculate_target_weight"]
+    assert "get_position_values" in skill.instructions, skill.instructions
     agent = build_agent(extra_skills=[skill], extra_tools=[calculate_target_weight])
     async with InMemoryRunner(
         agent=agent, app_name="reviewed_skill_test", plugins=[pacer]
@@ -129,6 +130,9 @@ async def check_author(runner: InMemoryRunner, pacer: ModelCallPacer) -> None:
             "How much would LUMR have to rise to reach 5% of my portfolio? Keep everything else flat.",
         )
     check_skill(applied, "target-weight", "calculate_target_weight")
+    position = tool_result(applied, "get_position_values")
+    assert position["current_position_value"] == 4_910, position
+    assert position["other_portfolio_value"] == 95_090, position
     expected = calculate_target_weight(4_910, 95_090, 0.05)["required_move_pct"]
     actual = tool_result(applied, "calculate_target_weight")["required_move_pct"]
     assert math.isclose(actual, expected, abs_tol=0.00001), (actual, expected)
@@ -155,6 +159,6 @@ async def run_tests(case: str, interval: float) -> None:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--case", choices=["all", *CHECKS], default="quotes")
-    parser.add_argument("--model-call-interval", type=model_call_interval, default=13)
+    parser.add_argument("--model-call-interval", type=model_call_interval, default=5)
     args = parser.parse_args()
     asyncio.run(run_tests(args.case, args.model_call_interval))
