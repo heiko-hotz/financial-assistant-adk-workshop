@@ -1,46 +1,59 @@
+"""The Module 1 portfolio assistant and its ADK tool wiring."""
 
-import os
+from collections.abc import Callable, Sequence
+from pathlib import Path
+
 from dotenv import load_dotenv
-from typing import Annotated
 from google.adk.agents import Agent
+from google.adk.skills.models import Skill
 from google.adk.tools import FunctionTool
+from google.adk.tools.skill_toolset import SkillToolset
 
-# 1. Load Environment Variables
-# Load .env.local from project root (2 dirs up from this file)
-current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.abspath(os.path.join(current_dir, "../../"))
-env_path = os.path.join(project_root, ".env.local")
-load_dotenv(env_path)
+from .portfolio import calculate_shock, get_holdings, get_stock_price
+from .skills import PORTFOLIO_STRESS_TEST, SKILL_AUTHOR, stage_skill_draft
 
-if "GOOGLE_API_KEY" not in os.environ:
-    print(f"⚠️ Warning: GOOGLE_API_KEY not found in {env_path}")
 
-# 2. Define Tools
-def get_stock_price(
-    ticker: Annotated[str, "The stock ticker symbol (e.g. LUMR, AAPL)"]
-) -> float:
-    """Fetches the current stock price for a given ticker."""
-    print(f"   [Tool] Fetching price for {ticker}...")
-    
-    # Simulation logic
-    mock_prices = {
-        "LUMR": 245.50,
-        "AAPL": 180.00,
-        "GOOG": 140.00
-    }
-    return mock_prices.get(ticker.upper(), 100.00)
+load_dotenv(Path(__file__).resolve().parents[2] / ".env.local")
+MODEL = "gemini-4-hydrogen"
+RESERVED_TOOL_NAMES = {
+    "get_stock_price", "get_holdings", "calculate_shock", "stage_skill_draft",
+    "list_skills", "load_skill", "load_skill_resource", "run_skill_script",
+    "search_skills", "unload_skill",
+}
 
-stock_tool = FunctionTool(get_stock_price)
 
-# 3. Define Agent
-# Named 'root_agent' for ADK compatibility
-root_agent = Agent(
-    model="gemini-3.5-flash-lite",
-    name="financial_assistant",
-    tools=[stock_tool],
-    instruction=(
-        "You are a helpful Financial Assistant for Lumenridge Financial Group employees. "
-        "Use your tools to find stock prices when asked. "
-        "Always explain your analysis in a professional tone."
+def validate_extra_tool_names(names: Sequence[str]) -> None:
+    taken = RESERVED_TOOL_NAMES.copy()
+    for name in names:
+        if not name or name in taken:
+            raise ValueError(f"Choose a unique name for the reviewed tool. Unavailable name: {name!r}.")
+        taken.add(name)
+
+
+def build_agent(
+    *,
+    extra_skills: Sequence[Skill] = (),
+    extra_tools: Sequence[Callable[..., dict]] = (),
+) -> Agent:
+    """Add a reviewed skill and its Python functions to a fresh agent."""
+    validate_extra_tool_names([getattr(tool, "__name__", "") for tool in extra_tools])
+    skill_tools = SkillToolset(
+        skills=[PORTFOLIO_STRESS_TEST, SKILL_AUTHOR, *extra_skills],
+        additional_tools=[calculate_shock, stage_skill_draft, *extra_tools],
     )
-)
+    return Agent(
+        model=MODEL,
+        name="financial_assistant",
+        instruction=(
+            "You are the Lumenridge workshop portfolio assistant. Use only the simulated "
+            "holdings and stock prices returned by your tools. For a simple quote, use "
+            "get_stock_price directly. Label values as simulated and show money to two decimal "
+            "places. Load a matching skill for portfolio analyses and explicit requests to "
+            "draft a new skill. Follow the loaded skill's instructions. If a tool reports an "
+            "error, explain it without inventing a value."
+        ),
+        tools=[FunctionTool(get_stock_price), FunctionTool(get_holdings), skill_tools],
+    )
+
+
+root_agent = build_agent()
